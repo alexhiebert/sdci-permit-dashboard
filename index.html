@@ -329,7 +329,7 @@
   }
   table.disciplines thead th {
     text-align: left;
-    padding: 8px 0 10px;
+    padding: 8px 12px 10px 0;
     font-size: 11px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -337,6 +337,7 @@
     font-weight: 600;
     border-bottom: 1px solid var(--hairline);
   }
+  table.disciplines thead th:last-child { padding-right: 0; }
   table.disciplines td {
     padding: 11px 12px 11px 0;
     border-bottom: 1px solid var(--hairline);
@@ -518,6 +519,13 @@
     .activity-item { grid-template-columns: 1fr; gap: 6px; }
     table.disciplines { font-size: 13px; }
     table.disciplines td, table.disciplines th { padding: 8px 6px 8px 0; }
+    /* Hide the Email column on narrow viewports — emails stay in the DOM
+       and the mailto still works for users who switch to desktop / landscape.
+       4th column because the table is: Discipline | Status | Assigned to | Email | Since */
+    table.disciplines th:nth-child(4),
+    table.disciplines td:nth-child(4) {
+      display: none;
+    }
   }
 
   /* Page-load reveal */
@@ -547,7 +555,7 @@
     <div class="brand">Advantage Realty Advisors <em>Seattle</em></div>
     <div class="last-updated">
       Last updated
-      <strong>Wednesday, April 22 · 10:50 AM</strong>
+      <strong>Wednesday, April 22 · 1:50 PM</strong>
     </div>
   </header>
 
