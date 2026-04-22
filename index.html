@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Permit Portfolio · Advantage Realty Advisors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:        #f7f1e6;
+    --cream-dk:     #ebe1cd;
+    --cream-lt:     #fbf7ee;
+    --terracotta:   #b15b3c;
+    --terracotta-dk:#8a4229;
+    --terracotta-lt:#d89577;
+    --olive:        #6b7a4b;
+    --gold:         #c9a961;
+    --ink:          #2a2420;
+    --ink-lt:       #4a413b;
+    --muted:        #857567;
+    --hairline:     rgba(42,36,32,0.08);
+    --success:      #4a6b3f;
+    --warning:      #b85c2e;
+    --danger:       #a8331f;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 15px;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(circle at 0% 0%, rgba(177,91,60,0.04), transparent 35%),
+      radial-gradient(circle at 100% 100%, rgba(201,169,97,0.05), transparent 40%);
+  }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ─── Header ───────────────────────────────────────────── */
+  header.site {
+    padding: 40px 0 28px;
+    border-bottom: 1px solid var(--hairline);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--terracotta-dk);
+    letter-spacing: -0.01em;
+  }
+  .brand em {
+    font-style: normal;
+    color: var(--muted);
+    font-weight: 400;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    margin-left: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .last-updated {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .last-updated strong {
+    color: var(--ink);
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 500;
+    font-size: 13px;
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* ─── Hero ─────────────────────────────────────────────── */
+  .hero {
+    padding: 72px 0 56px;
+    position: relative;
+  }
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: clamp(42px, 6vw, 68px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin-bottom: 18px;
+    color: var(--ink);
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--terracotta-dk);
+    font-weight: 400;
+  }
+  .subhead {
+    font-size: 18px;
+    color: var(--ink-lt);
+    max-width: 640px;
+    margin-bottom: 42px;
+  }
+
+  /* ─── Stat strip ───────────────────────────────────────── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+  }
+  .stat {
+    background: var(--cream-lt);
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 1;
+    color: var(--terracotta-dk);
+    letter-spacing: -0.02em;
+  }
+  .stat-num.warn { color: var(--warning); }
+  .stat-num.ok   { color: var(--olive); }
+  .stat-label {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  /* ─── Section rules ────────────────────────────────────── */
+  section {
+    padding: 64px 0;
+  }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .section-head h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .section-head .meta {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ─── Permit cards ─────────────────────────────────────── */
+  .permits {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+  }
+  .permit {
+    background: white;
+    padding: 28px 30px;
+  }
+  .permit.action-needed { background: linear-gradient(to right, #faeee5 0%, white 35%); }
+  .permit.approved      { background: linear-gradient(to right, #eef0e5 0%, white 35%); }
+  .permit-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .permit h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .permit-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .portal-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 11px;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--terracotta-dk);
+    background: rgba(177,91,60,0.08);
+    border: 1px solid rgba(177,91,60,0.25);
+    border-radius: 3px;
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+  .portal-link:hover {
+    background: var(--terracotta);
+    color: white;
+    border-color: var(--terracotta);
+  }
+  .portal-link span {
+    transition: transform 0.15s ease;
+    font-size: 13px;
+    line-height: 1;
+  }
+  .portal-link:hover span {
+    transform: translateX(3px);
+  }
+  .badge {
+    display: inline-block;
+    padding: 5px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    background: var(--cream-dk);
+    color: var(--ink-lt);
+    border-radius: 2px;
+  }
+  .action-needed .badge { background: var(--terracotta); color: white; }
+  .approved .badge      { background: var(--olive); color: white; }
+
+  .cycle-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--hairline);
+    margin-bottom: 22px;
+    border: 1px solid var(--hairline);
+  }
+  .metric {
+    background: var(--cream-lt);
+    padding: 14px 18px;
+  }
+  .metric.wide { grid-column: span 1; }
+  .metric-label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .metric-value {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .discipline-section {
+    margin-bottom: 22px;
+  }
+  .discipline-section h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .count {
+    display: inline-block;
+    min-width: 22px;
+    padding: 2px 8px;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    background: var(--terracotta);
+    color: white;
+    border-radius: 10px;
+  }
+  .needs-attn .count { background: var(--warning); }
+
+  table.disciplines {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  table.disciplines thead th {
+    text-align: left;
+    padding: 8px 0 10px;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    border-bottom: 1px solid var(--hairline);
+  }
+  table.disciplines td {
+    padding: 11px 12px 11px 0;
+    border-bottom: 1px solid var(--hairline);
+  }
+  table.disciplines td.date {
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    font-size: 13px;
+  }
+  table.disciplines tr:last-child td { border-bottom: none; }
+
+  .status-pill {
+    display: inline-block;
+    padding: 3px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 2px;
+    letter-spacing: 0.01em;
+  }
+  .s-corrections { background: rgba(184,92,46,0.14); color: var(--warning); }
+  .s-approved    { background: rgba(74,107,63,0.14); color: var(--success); }
+  .s-active      { background: rgba(201,169,97,0.2); color: #7d6432; }
+  .s-pending     { background: var(--cream-dk); color: var(--ink-lt); }
+  .s-neutral     { background: var(--cream-dk); color: var(--muted); }
+  .s-none        { background: var(--cream-dk); color: var(--muted); }
+
+  .completed-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    background: var(--cream-lt);
+    border-left: 3px solid var(--olive);
+  }
+  .completed-label {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .completed-count {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--olive);
+  }
+
+  /* ─── Activity timeline ────────────────────────────────── */
+  .activity {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+  }
+  .activity-item {
+    background: white;
+    padding: 16px 22px;
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .activity-time {
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+    padding-top: 2px;
+  }
+  .activity-permit {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 3px;
+  }
+  .activity-desc {
+    color: var(--ink);
+    font-size: 15px;
+  }
+  .activity-desc .who { color: var(--muted); font-size: 13px; }
+  .activity-item.s-corrections { border-left: 3px solid var(--warning); }
+  .activity-item.s-approved    { border-left: 3px solid var(--olive); }
+  .activity-empty {
+    background: white;
+    padding: 28px;
+    text-align: center;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ─── Footer ───────────────────────────────────────────── */
+  footer.site {
+    margin-top: 40px;
+    padding: 36px 0;
+    border-top: 1px solid var(--hairline);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  footer.site .tag {
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+  }
+
+  /* ─── Responsive ───────────────────────────────────────── */
+  @media (max-width: 720px) {
+    .wrap { padding: 0 20px; }
+    header.site { padding: 26px 0 20px; }
+    .hero { padding: 44px 0 40px; }
+    h1 { font-size: 38px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .cycle-row { grid-template-columns: 1fr; }
+    .permit { padding: 22px 20px; }
+    .activity-item { grid-template-columns: 1fr; gap: 6px; }
+    table.disciplines { font-size: 13px; }
+    table.disciplines td, table.disciplines th { padding: 8px 6px 8px 0; }
+  }
+
+  /* Page-load reveal */
+  .permits > *, .activity > *, .stats > * {
+    opacity: 0;
+    animation: rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+  .stats > *:nth-child(1) { animation-delay: 0.05s; }
+  .stats > *:nth-child(2) { animation-delay: 0.10s; }
+  .stats > *:nth-child(3) { animation-delay: 0.15s; }
+  .stats > *:nth-child(4) { animation-delay: 0.20s; }
+  .permits > *:nth-child(1) { animation-delay: 0.12s; }
+  .permits > *:nth-child(2) { animation-delay: 0.22s; }
+  .permits > *:nth-child(3) { animation-delay: 0.32s; }
+  .permits > *:nth-child(4) { animation-delay: 0.42s; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="site">
+    <div class="brand">Advantage Realty Advisors <em>Seattle</em></div>
+    <div class="last-updated">
+      Last updated
+      <strong>Wednesday, April 22 · 8:57 AM</strong>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">Permit Portfolio · Live Dashboard</div>
+    <h1>Development pipeline, <em>at a glance.</em></h1>
+    <p class="subhead">
+      Active SDCI construction permits across our Seattle development portfolio,
+      updated automatically each morning. Review cycles, reviewer assignments,
+      and upcoming deadlines tracked in real time.
+    </p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Permits tracked</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1</div>
+        <div class="stat-label">In review</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num warn">2</div>
+        <div class="stat-label">Action needed</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">8</div>
+        <div class="stat-label">Active reviews</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Permits</h2>
+      <div class="meta">Portfolio overview</div>
+    </div>
+    <div class="permits">
+<article class="permit in-review">
+  <header class="permit-head">
+    <div class="permit-title"><h3>3047 22nd Ave W – SFR+DADU (7100545-CN)</h3><a class="portal-link" href="https://services.seattle.gov/Portal/Cap/CapDetail.aspx?Module=DPDPermits&amp;capID1=25SCI&amp;capID2=00000&amp;capID3=84186&amp;agencyCode=SEATTLE" target="_blank" rel="noopener">View on SDCI portal <span aria-hidden="true">→</span></a></div>
+    <span class="badge">Reviews In Process</span>
+  </header>
+  <div class="cycle-row">
+    <div class="metric"><span class="metric-label">Cycle</span><span class="metric-value">2</span></div>
+    <div class="metric"><span class="metric-label">Cycle due</span><span class="metric-value">05/01/2026</span></div>
+    <div class="metric wide"><span class="metric-label">Cycle status</span><span class="metric-value">Awaiting review</span></div>
+  </div>
+  <div class="discipline-section">
+    <h4>Active reviews <span class="count">8</span></h4>
+    <table class="disciplines">
+      <thead><tr><th>Discipline</th><th>Status</th><th>Assigned to</th><th>Since</th></tr></thead>
+      <tbody>
+        <tr><td>Addressing</td><td><span class="status-pill s-pending">Pending Assignment</span></td><td>Jose Franco</td><td class="date">04/20/2026</td></tr>
+        <tr><td>City Light</td><td><span class="status-pill s-pending">Pending Assignment</span></td><td>TBD</td><td class="date">04/20/2026</td></tr>
+        <tr><td>Drainage</td><td><span class="status-pill s-active">Assigned</span></td><td>Jessica Batterman</td><td class="date">04/20/2026</td></tr>
+        <tr><td>ECA GeoTech</td><td><span class="status-pill s-active">Assigned</span></td><td>Manika Maharjan</td><td class="date">04/20/2026</td></tr>
+        <tr><td>Energy</td><td><span class="status-pill s-active">Assigned</span></td><td>Michael Bocklund</td><td class="date">04/20/2026</td></tr>
+        <tr><td>Ordinance/Structural</td><td><span class="status-pill s-active">Assigned</span></td><td>Gordon Hicks</td><td class="date">04/20/2026</td></tr>
+        <tr><td>Zoning</td><td><span class="status-pill s-pending">Pending Assignment</span></td><td>David Sachs</td><td class="date">04/20/2026</td></tr>
+        <tr><td>Revegetation</td><td><span class="status-pill s-active">Assigned</span></td><td>Leah Carlson</td><td class="date">04/20/2026</td></tr>
+      </tbody></table>
+  </div>
+  <div class="completed-row">
+    <span class="completed-label">Completed reviews</span>
+    <span class="completed-count">1</span>
+  </div>
+</article>
+<article class="permit action-needed">
+  <header class="permit-head">
+    <div class="permit-title"><h3>4052 Williams Ave W – SFR+DADU (7100718-CN)</h3><a class="portal-link" href="https://services.seattle.gov/Portal/Cap/CapDetail.aspx?Module=DPDPermits&amp;capID1=25SCI&amp;capID2=00000&amp;capID3=84614&amp;agencyCode=SEATTLE" target="_blank" rel="noopener">View on SDCI portal <span aria-hidden="true">→</span></a></div>
+    <span class="badge">Corrections Required</span>
+  </header>
+</article>
+<article class="permit action-needed">
+  <header class="permit-head">
+    <div class="permit-title"><h3>2822 W Elmore Pl (7134727-CN)</h3><a class="portal-link" href="https://services.seattle.gov/Portal/Cap/CapDetail.aspx?Module=DPDPermits&amp;capID1=26SCI&amp;capID2=00000&amp;capID3=27785&amp;agencyCode=SEATTLE" target="_blank" rel="noopener">View on SDCI portal <span aria-hidden="true">→</span></a></div>
+    <span class="badge">Additional Info Requested</span>
+  </header>
+</article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <h2>Recent activity</h2>
+      <div class="meta">Latest status changes</div>
+    </div>
+    <ul class="activity">
+<li class="activity-empty">No status changes in the last 30 days.</li>
+    </ul>
+  </section>
+
+  <footer class="site">
+    <div>© 2026 Advantage Realty Advisors LLC · UBI 604 616 872</div>
+    <div class="tag">Auto-updated · Public portfolio view</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
