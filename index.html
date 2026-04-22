@@ -386,18 +386,26 @@
   }
 
   /* ─── Reviewer contact links ─────────────────────────── */
+  td.email-cell {
+    font-size: 13px;
+    word-break: break-word;
+    max-width: 240px;
+  }
   a.contact {
-    color: var(--ink);
+    color: var(--terracotta);
     text-decoration: none;
-    border-bottom: 1px dotted var(--muted);
+    border-bottom: 1px solid rgba(184,92,46,0.25);
     transition: color 0.15s ease, border-color 0.15s ease;
+    white-space: nowrap;
   }
   a.contact:hover {
-    color: var(--terracotta);
+    color: var(--terracotta-dk);
     border-bottom-color: var(--terracotta);
   }
   .supervisor-line {
-    margin-top: 4px;
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px dashed var(--cream-dk);
     font-size: 12px;
     line-height: 1.4;
     color: var(--muted);
@@ -539,7 +547,7 @@
     <div class="brand">Advantage Realty Advisors <em>Seattle</em></div>
     <div class="last-updated">
       Last updated
-      <strong>Wednesday, April 22 · 10:45 AM</strong>
+      <strong>Wednesday, April 22 · 10:50 AM</strong>
     </div>
   </header>
 
@@ -591,16 +599,16 @@
   <div class="discipline-section">
     <h4>Active reviews <span class="count">8</span></h4>
     <table class="disciplines">
-      <thead><tr><th>Discipline</th><th>Status</th><th>Assigned to</th><th>Since</th></tr></thead>
+      <thead><tr><th>Discipline</th><th>Status</th><th>Assigned to</th><th>Email</th><th>Since</th></tr></thead>
       <tbody>
-        <tr><td>Addressing</td><td><span class="status-pill s-pending">Pending Assignment</span></td><td><a class="contact" href="mailto:Jose.Franco@seattle.gov" title="Email Jose Franco">Jose Franco</a></td><td class="date">04/20/2026</td></tr>
-        <tr><td>City Light</td><td><span class="status-pill s-pending">Pending Assignment</span></td><td>TBD</td><td class="date">04/20/2026</td></tr>
-        <tr><td>Drainage</td><td><span class="status-pill s-active">Assigned</span></td><td><a class="contact" href="mailto:Jessica.Batterman@seattle.gov" title="Email Jessica Batterman">Jessica Batterman</a></td><td class="date">04/20/2026</td></tr>
-        <tr><td>ECA GeoTech</td><td><span class="status-pill s-active">Assigned</span></td><td><a class="contact" href="mailto:Manika.Maharjan@seattle.gov" title="Email Manika Maharjan">Manika Maharjan</a></td><td class="date">04/20/2026</td></tr>
-        <tr><td>Energy</td><td><span class="status-pill s-active">Assigned</span></td><td><a class="contact" href="mailto:Michael.Bocklund@seattle.gov" title="Email Michael Bocklund">Michael Bocklund</a></td><td class="date">04/20/2026</td></tr>
-        <tr><td>Ordinance/Structural</td><td><span class="status-pill s-active">Assigned</span></td><td><a class="contact" href="mailto:Gordon.Hicks@seattle.gov" title="Email Gordon Hicks">Gordon Hicks</a></td><td class="date">04/20/2026</td></tr>
-        <tr><td>Zoning</td><td><span class="status-pill s-pending">Pending Assignment</span></td><td><a class="contact" href="mailto:David.Sachs@seattle.gov" title="Email David Sachs">David Sachs</a></td><td class="date">04/20/2026</td></tr>
-        <tr><td>Revegetation</td><td><span class="status-pill s-active">Assigned</span></td><td><a class="contact" href="mailto:Leah.Carlson@seattle.gov" title="Email Leah Carlson">Leah Carlson</a></td><td class="date">04/20/2026</td></tr>
+        <tr><td>Addressing</td><td><span class="status-pill s-pending">Pending Assignment</span></td><td>Jose Franco</td><td class="email-cell"><a class="contact" href="mailto:Jose.Franco@seattle.gov" title="Email Jose Franco">Jose.Franco@seattle.gov</a></td><td class="date">04/20/2026</td></tr>
+        <tr><td>City Light</td><td><span class="status-pill s-pending">Pending Assignment</span></td><td>TBD</td><td>—</td><td class="date">04/20/2026</td></tr>
+        <tr><td>Drainage</td><td><span class="status-pill s-active">Assigned</span></td><td>Jessica Batterman</td><td class="email-cell"><a class="contact" href="mailto:Jessica.Batterman@seattle.gov" title="Email Jessica Batterman">Jessica.Batterman@seattle.gov</a></td><td class="date">04/20/2026</td></tr>
+        <tr><td>ECA GeoTech</td><td><span class="status-pill s-active">Assigned</span></td><td>Manika Maharjan</td><td class="email-cell"><a class="contact" href="mailto:Manika.Maharjan@seattle.gov" title="Email Manika Maharjan">Manika.Maharjan@seattle.gov</a></td><td class="date">04/20/2026</td></tr>
+        <tr><td>Energy</td><td><span class="status-pill s-active">Assigned</span></td><td>Michael Bocklund</td><td class="email-cell"><a class="contact" href="mailto:Michael.Bocklund@seattle.gov" title="Email Michael Bocklund">Michael.Bocklund@seattle.gov</a></td><td class="date">04/20/2026</td></tr>
+        <tr><td>Ordinance/Structural</td><td><span class="status-pill s-active">Assigned</span></td><td>Gordon Hicks</td><td class="email-cell"><a class="contact" href="mailto:Gordon.Hicks@seattle.gov" title="Email Gordon Hicks">Gordon.Hicks@seattle.gov</a></td><td class="date">04/20/2026</td></tr>
+        <tr><td>Zoning</td><td><span class="status-pill s-pending">Pending Assignment</span></td><td>David Sachs</td><td class="email-cell"><a class="contact" href="mailto:David.Sachs@seattle.gov" title="Email David Sachs">David.Sachs@seattle.gov</a></td><td class="date">04/20/2026</td></tr>
+        <tr><td>Revegetation</td><td><span class="status-pill s-active">Assigned</span></td><td>Leah Carlson</td><td class="email-cell"><a class="contact" href="mailto:Leah.Carlson@seattle.gov" title="Email Leah Carlson">Leah.Carlson@seattle.gov</a></td><td class="date">04/20/2026</td></tr>
       </tbody></table>
   </div>
   <div class="completed-row">
